@@ -1,0 +1,50 @@
+# Secrets
+.env
+.env.*
+*.env
+!**/.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Frontend
+node_modules/
+dist/
+dist-ssr/
+coverage/
+*.tsbuildinfo
+*.local
+
+# Local data and logs
+*.db
+*.sqlite3
+*.db.backup-*
+*.log
+data/
+backend/data/
+
+# Local platform state
+.railway/
+.vercel/
+.kiro/
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

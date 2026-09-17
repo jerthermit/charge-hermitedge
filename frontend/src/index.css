@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .dark {
+    color-scheme: light;
+
+    --background: 75 15% 94%;
+    --foreground: 105 11% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 105 11% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 105 11% 7%;
+    --primary: 105 11% 7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 77 100% 71%;
+    --secondary-foreground: 105 11% 7%;
+    --accent: 145 53% 53%;
+    --accent-foreground: 105 11% 7%;
+    --destructive: 7 54% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --muted: 90 9% 88%;
+    --muted-foreground: 105 5% 43%;
+    --border: 105 11% 7% / 0.1;
+    --input: 0 0% 100%;
+    --ring: 105 11% 7%;
+    --radius: 1rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    overflow-x: clip;
+    background: #f1f2ed;
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    overflow-x: clip;
+    background: #f1f2ed;
+    color: #111510;
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    font-size: 16px;
+    font-feature-settings:
+      "cv11",
+      "ss01";
+    font-synthesis: none;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  input,
+  select,
+  textarea {
+    color: #111510;
+  }
+
+  select option {
+    background: #ffffff;
+    color: #111510;
+  }
+
+  img,
+  svg {
+    display: block;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ::selection {
+    background: #dfff69;
+    color: #111510;
+  }
+}
+
+:where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role="button"]
+  ):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+[data-password-field] input:focus-visible {
+  outline: none;
+}
+
+[data-charge-planner] input:focus-visible {
+  outline: none;
+}
+
+[data-charge-planner] input:-webkit-autofill,
+[data-charge-planner] input:-webkit-autofill:hover,
+[data-charge-planner] input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  box-shadow: 0 0 0 1000px #1d211c inset;
+  caret-color: #ffffff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #111510;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  caret-color: #111510;
+}
+
+[data-radix-popper-content-wrapper] {
+  z-index: 80 !important;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(17, 21, 16, 0.3);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 21, 16, 0.5);
+  background-clip: padding-box;
+}
+
+* {
+  scrollbar-color: rgba(17, 21, 16, 0.3) transparent;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  [data-print-receipt],
+  [data-print-receipt] * {
+    visibility: visible;
+  }
+
+  [data-print-receipt] {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  [data-no-print] {
+    display: none !important;
+  }
+}
